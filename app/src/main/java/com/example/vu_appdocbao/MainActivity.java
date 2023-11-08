@@ -5,12 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import org.w3c.dom.CharacterData;
 import org.w3c.dom.Document;
@@ -24,9 +21,6 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.regex.Matcher;
@@ -91,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
                 Element element = (Element) nodeList.item(i);
                 title = parser.getValue(element, "title");
                 time = parser.getValue(element, "pubDate");
+
+
                 NodeList nodeList2 = element.getElementsByTagName("description");
                 Element line = (Element) nodeList2.item(0);
                 Matcher matcher = Pattern.compile("<img src=\"([^\"]+)").matcher(getCharacterDataFromElement(line));
